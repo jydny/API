@@ -1,0 +1,315 @@
+
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Video Watcher</title>
+  <link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/css/bootstrap.min.css">
+
+  <style type="text/css">
+  body {
+  	background-color: #2A2A2A;
+  	font-family: 'Roboto', sans-serif;
+  }
+
+  .wrapper {
+    width:100%;
+  }
+
+  .center {
+      display: block;
+      width:50%;
+      padding: 80px 0 60px;
+      margin: 0 auto;
+  }
+
+  h1 {
+    color: #cacaca;
+    font-size: 50px;
+    line-height: 1.45em;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: .1em;
+  	text-decoration: none;
+  }
+
+  h1 a {
+    color: #cacaca;
+    font-size: 50px;
+    line-height: 1.45em;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: .1em;
+  	text-decoration: none;
+  }
+
+  h1 a:hover {
+    color:#8a8a8a;
+    text-decoration: none;
+  }
+  .slash {
+  	font-weight: 400;
+  }
+
+  .breadcrum {
+  	color: #cacaca;
+    font-size: 20px;
+  	letter-spacing: 0;
+  	font-weight: 400;
+  }
+
+
+  h2 {
+      font-size: 40px;
+      color: #55B1FE;
+      font-family: Lato,Helvetica,Arial,sans-serif;
+      line-height: 1.7em;
+      word-spacing: .02em;
+      font-weight: 400;
+      text-transform: capitalize;
+  }
+
+  h3 {
+      font-size: 30px;
+      color: #87C37C;
+      font-family: Lato,Helvetica,Arial,sans-serif;
+      line-height: 1.7em;
+      word-spacing: .02em;
+      font-weight: 400;
+  }
+
+  h4 {
+    font-size: 1.15em;
+    color: #8a8a8a;
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    line-height: 1.7em;
+    word-spacing: .02em;
+    font-weight: 400;
+  }
+
+  p {
+  	font-size: 20px;
+  	background-color:;
+  	line-height:30px;
+  	font-size:18px;
+  	font-weight:bold;
+  	color:#8a8a8a;
+  }
+
+  .title {
+  	font-size: 1em;
+  	color:#2126fd;
+  	}
+
+  .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #313131;
+      color: #999;
+      border-width: 1px 1px 2px 1px;
+      border-style: solid;
+      border-color: #222;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-family: MontSerrat,Tahoma,Arial,sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1em;
+      box-shadow: 1px 1px 0 rgba(0,0,0,.25);
+      margin: 3px;
+      opacity: 1;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .btn a { color: #999; text-decoration: none; }
+
+  .box {
+  	text-align:center;
+  	background-color:#1D1F21;
+  	border: 5px solid #000000;
+  	margin: 50px;
+  }
+
+  ul#filter {
+      display: block;
+      padding: 0 !important;
+  }
+
+  ul#filter li {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #313131;
+      color: #999;
+      border-width: 1px 1px 2px 1px;
+      border-style: solid;
+      border-color: #222;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-family: MontSerrat,Tahoma,Arial,sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1em;
+      box-shadow: 1px 1px 0 rgba(0,0,0,.25);
+      margin: 3px;
+      opacity: 1;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+  }
+
+  ul#filter a { color: #999; text-decoration: none; }
+
+  ul#filter li.current a, ul#filter a:hover { text-decoration: none; }
+
+  ul#filter li.current a { color: #999; background-color: #515151;}
+
+  .filters li.current:after, .filters li.current:before, .filters li:hover:after, .filters li:hover:before {
+      -moz-transform: translate3d(0,0,0);
+      -ms-transform: translate3d(0,0,0);
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+  }
+
+  ul#portfolio {
+    float: left;
+    list-style: none;
+    margin-left: 0;
+    width: 672px;
+    padding: 0 !important;
+  }
+
+  ul#portfolio li {
+    border: 1px solid #dedede;
+    float: left;
+    margin: 0 10px 10px 0;
+    padding: 5px;
+    width: 202px;
+    color: #cacaca;
+    text-transform: capitalize;
+  }
+
+  ul#portfolio a { display: block; width: 100%; color: #cacaca; text-decoration: none;}
+
+  ul#portfolio a:hover { text-decoration: none; }
+
+  ul#portfolio img { border: 1px solid #dedede; display: block; padding-bottom: 5px; }
+
+  ul#portfolio li { margin-right: 5px; }
+
+
+
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display: block;
+  }
+  </style>
+ </head>
+ <body>
+
+<div class="container">
+  <div class="row">
+     <div class="col-md-12">
+      <h2 class="page-header">Best Videos Ever ❤
+
+        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        });
+      </script>
+
+        <a href="https://twitter.com/share?count=none&hashtags=youtube" class="twitter-share-button" data-lang="en">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </h2>
+     </div>
+   </div>
+
+  <div class="row">
+     <div class="col-md-3">
+       <ul id="videos-list"></ul>
+     </div>
+     <div class="col-md-9" id="video-watcher"></div>
+  </div>
+
+  <div style="text-align:center; margin-top: 30px; clear:both;">
+    <a href="https://info.flagcounter.com/nEFy"><img src="https://s04.flagcounter.com/count/nEFy/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/" alt="Flag Counter" border="0"></a>
+  </div>
+
+</div>
+
+ <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+ <script type="text/javascript" src="http://www.teaching-materials.org/common/js/jquery.min.js"></script>
+
+ <script>
+ var videos = [
+   {"youtubeId": "fCSQd8Nx4mI",
+     "title": "Sound The Trumpet",
+     "author": "Alison Balsom",
+     "rating": 90
+   },
+   {"youtubeId": "HIeCthPXJiw",
+     "title": "Ave Maria",
+     "author": "Sumi Jo",
+     "rating": 60
+   },
+   {"youtubeId": "v_B4Hr4wwfM",
+     "title": "La Campanella",
+     "author": "Yeol eum Son",
+     "rating": 70
+   },
+   {"youtubeId": "1plZnymIDj8",
+     "title": "J.S. Bach Partita No. 3 in A Minor",
+     "author": "Rafał Blechacz",
+     "rating": 100
+   }
+ ];
+
+ function addVideoToList(video) {
+
+    var videoLink = $('<a>');
+    videoLink.append(video.title);
+    var linkUrl = videoLink.attr('href');
+    var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
+    var thumbnailImg = $('<img>');
+    thumbnailImg.attr('src', thumbnailUrl);
+    videoLink.append(thumbnailImg);
+
+    videoLink.on('click', function(event) {
+        event.preventDefault();
+
+        var videoTitle = $('<h2>');
+        videoTitle.html(video.title + ' <small>' + video.author + '</small>');
+
+        var videoEmbed = $('<iframe></iframe>');
+        videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
+        videoEmbed.attr('width', 560);
+        videoEmbed.attr('height', 315);
+
+        var videoRating = $('<img></img>');
+        videoRating.attr('src', 'https://chart.googleapis.com/chart?chs=225x125&cht=gom&chd=t:' + video.rating);
+
+        var videoWatcher = $('#video-watcher');
+        videoWatcher.hide();
+        videoWatcher.empty();
+        videoWatcher.append(videoTitle);
+        videoWatcher.append(videoEmbed);
+        videoWatcher.append(videoRating);
+        videoWatcher.fadeIn();
+    });
+
+    var videoItem = $('<li>');
+    videoItem.append(videoLink);
+    $('#videos-list').append(videoItem);
+ }
+
+for (var i = 0; i < videos.length; i++) {
+   addVideoToList(videos[i]);
+}
+
+ </script>
+ </body>
+</html>
